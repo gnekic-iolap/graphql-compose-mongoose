@@ -49,7 +49,7 @@ export default function findMany(
       }),
     },
     resolve: (resolveParams: ExtendedResolveParams) => {
-      resolveParams.query = model.find();
+      resolveParams.query = model.find().batchSize(1000000);
       filterHelper(resolveParams);
       skipHelper(resolveParams);
       limitHelper(resolveParams);
